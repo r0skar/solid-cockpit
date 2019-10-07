@@ -14,7 +14,7 @@
         "breakOnLoad": true,
         "sourceMaps": true,
         "sourceMapPathOverrides": {
-          "/__HDD/__persistent/dev/solid-cockpit-next/src/*": "${webRoot}/*",
+          "/__HDD/__persistent/dev/solid-cockpit/src/*": "${webRoot}/*",
         }
       }
   ]

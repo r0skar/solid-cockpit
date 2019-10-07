@@ -23,7 +23,8 @@ const history = createBrowserHistory()
 const router = new UniversalRouter(routes)
 
 const resolveLocation = (location: Location) => {
-  return router.resolve(location).catch(() => ({} as RouteConfig))
+  const noopRoute = () => ({} as RouteConfig)
+  return router.resolve(location).catch(noopRoute)
 }
 
 const createRouteRequest = (routeRequest: () => Promise<RouteConfig>) => {
