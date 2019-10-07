@@ -10,10 +10,10 @@ import { createAbortablePromise, nextFrame, noop } from 'App/lib/utils'
 type RouteCallback = (el: HTMLElement) => Promise<unknown>
 
 export interface RouteConfig {
-  route?: Route
-  redirect?: string
   view?: View
+  context?: Route
   head?: HeadProps
+  redirect?: string
   data?: Record<string, unknown>
   beforeEnter?: RouteCallback
   beforeLeave?: RouteCallback
@@ -92,11 +92,11 @@ export const useRouter = () => {
         beforeEnter,
         beforeLeave,
         redirect,
-        route: resolvedRoute,
+        context,
         view: resolvedView = noop
       } = await routeRequest
 
-      if (!resolvedRoute) {
+      if (!context) {
         history.replace(redirect || DEFAULT_ROUTE)
         return
       }
@@ -116,7 +116,7 @@ export const useRouter = () => {
         await beforeEnter(routeEl)
       }
 
-      setRoute(resolvedRoute)
+      setRoute(context)
 
       routeLeaveCb = beforeLeave
     } catch (e) {

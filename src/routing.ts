@@ -65,7 +65,7 @@ export const routes: Routes<{}, RouteConfig> = [
     name: '404',
     action: async context => {
       return {
-        route: createRouteContext(context),
+        context: createRouteContext(context),
         view: await fetchView('NotFound'),
         head: await createDocumentHeader({ title: 'Page not found' }),
         beforeEnter,
@@ -82,7 +82,7 @@ export const routes: Routes<{}, RouteConfig> = [
       const head = await createDocumentHeader({ title: data.title })
 
       return {
-        route: createRouteContext(context),
+        context: createRouteContext(context),
         view,
         data,
         head,
@@ -101,7 +101,7 @@ export const routes: Routes<{}, RouteConfig> = [
     name: 'child',
     action: async context => {
       return {
-        route: createRouteContext(context),
+        context: createRouteContext(context),
         view: await fetchView('Child'),
         head: await createDocumentHeader({ title: 'Child' }),
         beforeEnter,
