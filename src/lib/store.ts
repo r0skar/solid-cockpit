@@ -25,10 +25,7 @@ const [ state, dispatch ] = createState<State>({
 
 const actions: Actions = {
   SET_ROUTE: route => {
-    dispatch('routing', (r: Routing) => ({
-      route,
-      prevRoute: r.route
-    }))
+    dispatch('routing', ({ route: prevRoute }: Routing) => ({ route, prevRoute }))
   }
 }
 
