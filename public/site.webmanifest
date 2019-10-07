@@ -1,6 +1,6 @@
 {
-  "name": "solid-cockpit-next",
-  "short_name": "solid-cockpit-next",
+  "name": "solid-cockpit",
+  "short_name": "solid-cockpit",
   "theme_color": "#ffffff",
   "background_color": "#ffffff",
   "display": "standalone",
